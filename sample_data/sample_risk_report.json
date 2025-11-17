@@ -1,0 +1,20 @@
+{
+  "company_id": 1,
+  "survival_probability": 72.4,
+  "heatmap": {
+    "cashflow_volatility": 34.2,
+    "burn_rate": 41.0,
+    "debtor_aging": 25.5,
+    "vendor_concentration": 18.9,
+    "seasonality": 30.1
+  },
+  "summary": "AI Risk Narrative:- cashflow_volatility: score 34.2 (Std-dev of daily net cash.)- burn_rate: score 41.0 (Difference between expenses and revenue.)- debtor_aging: score 25.5 (Receivables overdue risk.)- vendor_concentration: score 18.9 (Dependence on a single vendor.)- seasonality: score 30.1 (Variability of monthly cashflows.)Survival probability over next 12 months estimated at 72.4%.Rules triggered: liquidity_ratio, margin_compressionRaw payload: {...}",
+  "report_payload": {
+    "metadata": {"company": "Example Corp"},
+    "rules": [
+      {"name": "liquidity_ratio", "triggered": true, "description": "Liquidity ratio below safe threshold"},
+      {"name": "margin_compression", "triggered": true, "description": "Gross margin compression"}
+    ],
+    "survival_probability": 72.4
+  }
+}

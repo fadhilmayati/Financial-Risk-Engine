@@ -1,0 +1,14 @@
+{
+  "company_id": 1,
+  "generated_at": "2024-02-15T12:05:00Z",
+  "flags": [
+    {"unique_id": "txn-004", "category": "subscriptions", "amount": -650.0},
+    {"unique_id": "txn-015", "category": "marketing", "amount": -830.0}
+  ],
+  "summary": {
+    "spending_spikes": true,
+    "duplicate_vendor": false,
+    "cashflow_break": true,
+    "category_drift": false
+  }
+}

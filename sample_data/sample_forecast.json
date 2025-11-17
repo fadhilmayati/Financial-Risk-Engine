@@ -1,0 +1,11 @@
+{
+  "company_id": 1,
+  "created_at": "2024-02-15T12:00:00Z",
+  "model_used": "exponential_smoothing",
+  "metadata": {"model": "exponential_smoothing", "historic_points": 12},
+  "horizons": [
+    {"horizon_days": 30, "revenue_projection": 6200.0, "expense_projection": 4100.0, "runway_days": 65},
+    {"horizon_days": 60, "revenue_projection": 6400.0, "expense_projection": 4200.0, "runway_days": 72},
+    {"horizon_days": 90, "revenue_projection": 6600.0, "expense_projection": 4350.0, "runway_days": 80}
+  ]
+}

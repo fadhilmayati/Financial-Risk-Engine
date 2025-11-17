@@ -1,0 +1,22 @@
+[
+  {"unique_id": "txn-001", "company_id": 1, "amount": 4500.0, "category": "sales", "description": "Monthly SaaS revenue", "currency": "USD", "transaction_date": "2024-01-05"},
+  {"unique_id": "txn-002", "company_id": 1, "amount": -1200.0, "category": "rent", "description": "Office lease", "currency": "USD", "transaction_date": "2024-01-06"},
+  {"unique_id": "txn-003", "company_id": 1, "amount": -400.0, "category": "utilities", "description": "Power bill", "currency": "USD", "transaction_date": "2024-01-08"},
+  {"unique_id": "txn-004", "company_id": 1, "amount": -650.0, "category": "subscriptions", "description": "Cloud services", "currency": "USD", "transaction_date": "2024-01-09"},
+  {"unique_id": "txn-005", "company_id": 1, "amount": 4700.0, "category": "sales", "description": "Enterprise client", "currency": "USD", "transaction_date": "2024-01-12"},
+  {"unique_id": "txn-006", "company_id": 1, "amount": -900.0, "category": "payroll", "description": "Engineering contractor", "currency": "USD", "transaction_date": "2024-01-14"},
+  {"unique_id": "txn-007", "company_id": 1, "amount": 5200.0, "category": "sales", "description": "Upsell", "currency": "USD", "transaction_date": "2024-01-18"},
+  {"unique_id": "txn-008", "company_id": 1, "amount": -750.0, "category": "marketing", "description": "Paid ads", "currency": "USD", "transaction_date": "2024-01-19"},
+  {"unique_id": "txn-009", "company_id": 1, "amount": -320.0, "category": "utilities", "description": "Water bill", "currency": "USD", "transaction_date": "2024-01-21"},
+  {"unique_id": "txn-010", "company_id": 1, "amount": -1400.0, "category": "rent", "description": "HQ lease", "currency": "USD", "transaction_date": "2024-01-25"},
+  {"unique_id": "txn-011", "company_id": 1, "amount": 4900.0, "category": "sales", "description": "Renewal", "currency": "USD", "transaction_date": "2024-01-28"},
+  {"unique_id": "txn-012", "company_id": 1, "amount": -500.0, "category": "subscriptions", "description": "Security tooling", "currency": "USD", "transaction_date": "2024-01-29"},
+  {"unique_id": "txn-013", "company_id": 1, "amount": -1100.0, "category": "payroll", "description": "Support team", "currency": "USD", "transaction_date": "2024-02-02"},
+  {"unique_id": "txn-014", "company_id": 1, "amount": 5100.0, "category": "sales", "description": "New ARR", "currency": "USD", "transaction_date": "2024-02-03"},
+  {"unique_id": "txn-015", "company_id": 1, "amount": -830.0, "category": "marketing", "description": "Content agency", "currency": "USD", "transaction_date": "2024-02-04"},
+  {"unique_id": "txn-016", "company_id": 1, "amount": -600.0, "category": "utilities", "description": "Gas bill", "currency": "USD", "transaction_date": "2024-02-06"},
+  {"unique_id": "txn-017", "company_id": 1, "amount": -420.0, "category": "subscriptions", "description": "Data provider", "currency": "USD", "transaction_date": "2024-02-07"},
+  {"unique_id": "txn-018", "company_id": 1, "amount": 5300.0, "category": "sales", "description": "Implementation", "currency": "USD", "transaction_date": "2024-02-10"},
+  {"unique_id": "txn-019", "company_id": 1, "amount": -950.0, "category": "payroll", "description": "Sales bonus", "currency": "USD", "transaction_date": "2024-02-11"},
+  {"unique_id": "txn-020", "company_id": 1, "amount": -770.0, "category": "marketing", "description": "Conference", "currency": "USD", "transaction_date": "2024-02-12"}
+]
