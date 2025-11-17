@@ -1,10 +1,9 @@
 """Risk engine endpoints."""
 from __future__ import annotations
 
-from fastapi import APIRouter, Depends, HTTPException
-from sqlalchemy.orm import Session
+from fastapi import APIRouter, HTTPException
 
-from app.database import get_db
+from app.api.dependencies import DBSession
 from app.models.company import Company
 from app.models.risk_report import RiskReport
 from app.models.transaction import Transaction
@@ -16,7 +15,7 @@ router = APIRouter(prefix="/risk", tags=["risk"])
 
 
 @router.post("/report/{company_id}", response_model=RiskReportResponse)
-def create_risk_report(company_id: int, db: Session = Depends(get_db)) -> RiskReportResponse:
+def create_risk_report(company_id: int, db: DBSession) -> RiskReportResponse:
     """Compute risk scores for a company and persist the report."""
 
     company = db.query(Company).filter(Company.id == company_id).first()

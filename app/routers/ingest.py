@@ -1,10 +1,9 @@
 """Transaction ingestion endpoints."""
 from __future__ import annotations
 
-from fastapi import APIRouter, Depends, HTTPException
-from sqlalchemy.orm import Session
+from fastapi import APIRouter, HTTPException
 
-from app.database import get_db
+from app.api.dependencies import DBSession
 from app.models.company import Company
 from app.models.transaction import Transaction
 from app.schemas.transaction_schema import TransactionIngestRequest, TransactionResponse
@@ -15,7 +14,7 @@ router = APIRouter(prefix="/ingest", tags=["ingest"])
 
 
 @router.post("/transactions", response_model=list[TransactionResponse])
-def ingest_transactions(payload: TransactionIngestRequest, db: Session = Depends(get_db)) -> list[TransactionResponse]:
+def ingest_transactions(payload: TransactionIngestRequest, db: DBSession) -> list[TransactionResponse]:
     """Clean, validate, deduplicate, and persist transactions."""
 
     company = db.query(Company).filter(Company.id == payload.company_id).first()

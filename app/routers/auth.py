@@ -4,21 +4,20 @@ from __future__ import annotations
 from datetime import timedelta
 
 from fastapi import APIRouter, Depends, HTTPException, status
-from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
-from sqlalchemy.orm import Session
+from fastapi.security import OAuth2PasswordRequestForm
 
+from app.api.dependencies import DBSession
 from app.config import get_settings
-from app.database import get_db
 from app.models.user import User
 from app.security.auth_handler import create_access_token, hash_password, verify_password, verify_token
+from app.security.dependencies import oauth2_scheme
 
 router = APIRouter(prefix="/auth", tags=["auth"])
-oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/auth/login")
 settings = get_settings()
 
 
 @router.post("/register")
-def register(email: str, password: str, db: Session = Depends(get_db)) -> dict:
+def register(email: str, password: str, db: DBSession) -> dict:
     """Register a new user."""
 
     existing = db.query(User).filter(User.email == email).first()
@@ -32,7 +31,7 @@ def register(email: str, password: str, db: Session = Depends(get_db)) -> dict:
 
 
 @router.post("/login")
-def login(form_data: OAuth2PasswordRequestForm = Depends(), db: Session = Depends(get_db)) -> dict:
+def login(db: DBSession, form_data: OAuth2PasswordRequestForm = Depends()) -> dict:
     """Authenticate a user and return access token."""
 
     user = db.query(User).filter(User.email == form_data.username).first()
