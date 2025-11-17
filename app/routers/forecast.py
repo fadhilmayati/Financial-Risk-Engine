@@ -3,10 +3,9 @@ from __future__ import annotations
 
 from datetime import datetime
 
-from fastapi import APIRouter, Depends, HTTPException
-from sqlalchemy.orm import Session
+from fastapi import APIRouter, HTTPException
 
-from app.database import get_db
+from app.api.dependencies import DBSession
 from app.models.company import Company
 from app.models.forecast import Forecast
 from app.models.transaction import Transaction
@@ -18,7 +17,7 @@ router = APIRouter(prefix="/forecast", tags=["forecast"])
 
 
 @router.post("/{company_id}", response_model=ForecastResponse)
-def create_forecast(company_id: int, db: Session = Depends(get_db)) -> ForecastResponse:
+def create_forecast(company_id: int, db: DBSession) -> ForecastResponse:
     """Generate forecasts and persist summary."""
 
     company = db.query(Company).filter(Company.id == company_id).first()
