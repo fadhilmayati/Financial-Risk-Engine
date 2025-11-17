@@ -8,7 +8,7 @@ import numpy as np
 import pandas as pd
 
 from app.services.rules_engine import RuleEvaluation, evaluate_rules
-from app.services.llm_explainer import explain_risk
+from app.services.llm_explainer import LLMProvider, explain_risk
 
 
 @dataclass
@@ -66,7 +66,11 @@ def _survival_probability(scores: List[RiskComponent], rules: List[RuleEvaluatio
     return float(np.clip(survival, 0, 100))
 
 
-def generate_risk_report(frame: pd.DataFrame, metadata: Dict[str, str] | None = None) -> Dict[str, object]:
+def generate_risk_report(
+    frame: pd.DataFrame,
+    metadata: Dict[str, str] | None = None,
+    explainer: LLMProvider | None = None,
+) -> Dict[str, object]:
     """Return the computed risk report payload."""
 
     metadata = metadata or {}
@@ -85,13 +89,13 @@ def generate_risk_report(frame: pd.DataFrame, metadata: Dict[str, str] | None = 
         "rules": [rule.model_dump() for rule in rules],
         "survival_probability": survival_probability,
     }
-    summary = explain_risk(
-        {
-            "components": [component.__dict__ for component in components],
-            "rules": [rule.model_dump() for rule in rules],
-            "survival_probability": survival_probability,
-        }
-    )
+    summary_payload = {
+        "metadata": metadata,
+        "components": [component.__dict__ for component in components],
+        "rules": [rule.model_dump() for rule in rules],
+        "survival_probability": survival_probability,
+    }
+    summary = explain_risk(summary_payload, provider=explainer)
     return {
         "components": components,
         "rules": rules,
